@@ -12,13 +12,11 @@ public class DungeonSetup : MonoBehaviour
     {
         //hw answer should be here!
         if(public bool northOn, southOn, eastOn, westOn = true)
-        {
-            this.GameObject = true
-        }
-        if(public bool northOn, southOn, eastOn, westOn = false)
-        {
-            this.GameObject = false
-        }
+            {
+                this.GameObject = true
+            }
+            else
+                this.GameObject = false
     }
 
     // Update is called once per frame
