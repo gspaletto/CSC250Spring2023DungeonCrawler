@@ -17,13 +17,31 @@ public class PlayerController : MonoBehaviour
         this.rb = this.GetComponent<Rigidbody>();
         MasterData md = new MasterData();
         this.isMoving = false;
+        print(MasterData.whereDidIComeFrom);
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.CompareTag("Exit"))
         {
+            if(other.gameObject == this.northExit)
+            {
+                MasterData.whereDidIComeFrom = "north";
+            }
+            else if (other.gameObject == this.southExit)
+            {
+                MasterData.whereDidIComeFrom = "south";
+            }
+            else if (other.gameObject == this.eastExit)
+            {
+                MasterData.whereDidIComeFrom = "east";
+            }
+            else if (other.gameObject == this.westExit)
+            {
+                MasterData.whereDidIComeFrom = "west";
+            }
+
             SceneManager.LoadScene("DungeonRoom");
         }
     }
