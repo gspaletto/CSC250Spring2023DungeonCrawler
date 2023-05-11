@@ -10,8 +10,7 @@ public class DungeonSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //hw answer should be here!
-
+        MasterData.setupDungeon();
     }
 
     // Update is called once per frame
