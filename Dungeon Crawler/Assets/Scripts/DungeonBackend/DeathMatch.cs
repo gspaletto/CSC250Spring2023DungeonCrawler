@@ -20,11 +20,19 @@ public class DeathMatch
 
     public void fight()
     {
-        //goes back and forth having our Inhabitant "try" to attack each other
-        //- a successful attack means that a D20 is at least as high as the targets AC
-        //- upon successful attack, the targets HP reduce by the attackers Attack
-        //- an unsucccessful attack results in no change in HP
-        //go back and forth like this until an inhabitant dies
-        
+        this.attackerOriginalPosition = this.currentAttackerGO.transform.position;
+        this.currRigidBodyOfAttacker = this.currentAttackerGO.GetComponent<Rigidbody>();
+        this.attackMoveDistance *= -1;
+
+        if (this.currentAttackerGO == this.dude1GO)
+        {
+            this.currentAttackerGO = this.dude2GO;
+        }
+        else
+        {
+            this.currentAttackerGO = this.dude1GO;
+        }
+
+        this.refereeInstance.StartCoroutine(MoveObjectRoutine());
     }
 }
